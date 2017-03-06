@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    overflow-x:hidden;
+}
+
+#hamburger-menu {
+    z-index: 200;
+    
+}
+
+#header {
+    left: 0;
+    top: 0;
+    position: fixed;
+    height: 55px;
+    width: 100%;
+    background-color: silver;
+    border-bottom: 1px solid #000000;
+    z-index: 1;
+}
+
+section.page {
+    visibility: collapse;
+    width: 0;
+    height: 0;
+}
+
+#content-holder {
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 300px) {
+    #hamburger-button {
+        width: 25px;
+        height:24px;
+        background
+    }
+}
+
+@media screen and (min-width: 300px) {
+    #hamburger-button {
+        visibility: collapse;
+    }
+}
