@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto');*/
 
 * {
     font-family: 'Roboto', sans-serif;
@@ -6,12 +6,18 @@
 
 body {
     margin: 0 auto;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 #hamburger-menu {
     z-index: 200;
-    
+    width: 200px;
+    height: 100%;
+    top: 0;
+}
+
+#hamburger-menu #closed {
+    margin-left: -200px;
 }
 
 #header {
@@ -26,9 +32,8 @@ body {
 }
 
 section.page {
-    visibility: collapse;
-    width: 0;
-    height: 0;
+    border: 1px solid red;
+    display: block;
 }
 
 #content-holder {
