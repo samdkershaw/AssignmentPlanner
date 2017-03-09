@@ -31,11 +31,11 @@ var app = {
 };
 
 $(document).on('deviceready', function(){
-    $(window).on("swipeleft", function() {
+    $(document).on("swipeleft", function() {
         hideHamburgerMenu();
     });
 
-    $(window).on("swiperight", function() {
+    $(document).on("swiperight", function() {
         showHamburgerMenu();
     });
 })
