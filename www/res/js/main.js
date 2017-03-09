@@ -29,3 +29,41 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+$(document).on('deviceready', function(){
+    $(window).on("swipeleft", function() {
+        hideHamburgerMenu();
+    });
+
+    $(window).on("swiperight", function() {
+        showHamburgerMenu();
+    });
+})
+
+function showHamburgerMenu() {
+    $('#hamburger-menu').css('visibility', 'visible').animate({
+        left: '0',
+    }, 200);
+    $('#overlay').css('visibility', 'visible').animate({
+        opacity: 0.8
+    }, 200);
+};
+
+function hideHamburgerMenu() {
+    $('#hamburger-menu').animate({
+        left: '-100%',
+    }, {
+        duration: 200,
+        complete: function() {
+            $(this).css('visibility', 'hidden')
+        }
+    });
+    $('#overlay').animate({
+        opacity: 0.0
+    }, {duration: 200,
+        complete: function(){
+            $(this).css('visibility', 'collapse');
+        }
+       }
+    );
+};
