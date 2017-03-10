@@ -16,6 +16,13 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        $(document).on('swipeleft swiperight', function(event) {
+            if (event.type == 'swipeleft') {
+                hideHamburgerMenu();
+            } else {
+                showHamburgerMenu();
+            }
+        })
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -29,16 +36,6 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
-
-$(document).on('deviceready', function(){
-    $(document).on("swipeleft", function() {
-        hideHamburgerMenu();
-    });
-
-    $(document).on("swiperight", function() {
-        showHamburgerMenu();
-    });
-})
 
 function showHamburgerMenu() {
     $('#hamburger-menu').css('visibility', 'visible').animate({
