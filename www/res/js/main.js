@@ -17,12 +17,14 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         $(document).on('swipeleft swiperight', function(event) {
+            console.log("got here...")
             if (event.type == 'swipeleft') {
                 hideHamburgerMenu();
             } else {
                 showHamburgerMenu();
             }
         })
+        
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -36,6 +38,23 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+$(document).ready(function() {
+   hideSplashScreen();
+})
+
+function hideSplashScreen() {
+    window.setTimeout(function() {
+        $('#splash-screen').animate(
+            {
+                opacity: 0.0
+            }, {
+            duration: 200,
+            complete: function() {
+                $(this).hide();
+        }});
+    }, 3500);
+}
 
 function showHamburgerMenu() {
     $('#hamburger-menu').css('visibility', 'visible').animate({
