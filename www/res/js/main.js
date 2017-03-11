@@ -51,9 +51,9 @@ function hideSplashScreen() {
             }, {
             duration: 200,
             complete: function() {
-                $(this).hide();
+                $(this).remove();
         }});
-    }, 3500);
+    }, 5000);
 }
 
 function showHamburgerMenu() {
