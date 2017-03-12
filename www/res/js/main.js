@@ -16,15 +16,6 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        $(document).on('swipeleft swiperight', function(event) {
-            console.log("got here...")
-            if (event.type == 'swipeleft') {
-                hideHamburgerMenu();
-            } else {
-                showHamburgerMenu();
-            }
-        })
-        
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -41,6 +32,20 @@ var app = {
 
 $(document).ready(function() {
    hideSplashScreen();
+    $('a').click(function() {
+        console.log("triggered...");
+        $('a').each(function(i, obj) {
+            $(this).animate({color: '#FFFFFF'}, {duration: 200});
+        });
+        $(this).animate({color: 'blue'}, {duration: 500});
+    });
+    $(window).on('swipeleft swiperight', null, true, function(event) {
+        if (event.type == 'swipeleft') {
+            hideHamburgerMenu();
+        } else {
+            showHamburgerMenu();
+        }
+    });
 })
 
 function hideSplashScreen() {
