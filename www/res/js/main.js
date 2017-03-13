@@ -32,12 +32,16 @@ var app = {
 
 $(document).ready(function() {
    hideSplashScreen();
-    $('a').click(function() {
-        console.log("triggered...");
-        $('a').each(function(i, obj) {
-            $(this).animate({color: '#FFFFFF'}, {duration: 200});
+    setEventListeners();
+})
+
+function setEventListeners() {
+    $('li a').click(function() {
+        $('li a').each(function(i, obj) {
+            $(this).removeClass('selected');
         });
-        $(this).animate({color: 'blue'}, {duration: 500});
+        $(this).addClass('selected');
+        hideHamburgerMenu();
     });
     $(window).on('swipeleft swiperight', null, true, function(event) {
         if (event.type == 'swipeleft') {
@@ -46,7 +50,7 @@ $(document).ready(function() {
             showHamburgerMenu();
         }
     });
-})
+}
 
 function hideSplashScreen() {
     window.setTimeout(function() {

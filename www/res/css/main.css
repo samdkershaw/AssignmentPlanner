@@ -3,6 +3,8 @@
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-tap-highlight-color: transparent;
     -webkit-user-select: none;
+    -webkit-margin-before:0em;
+    -webkit-margin-after:0em;
 }
 
 body {
@@ -16,7 +18,7 @@ body {
     background-color: #a5a5a5;
     cursor: none;
     display: block;
-    position: fixed;
+    position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
@@ -24,6 +26,8 @@ body {
     z-index: 100000;
     text-align: center;
     padding-top: 40%;
+    /*REMOVE FOR PRODUCTION! */
+    visibility: collapse;
 }
 
 #splash-screen .loading {
@@ -205,23 +209,23 @@ body {
     width: 100%;
     list-style: none;
     -webkit-padding-start: 0;
+    border-top: 1px solid #000;
 }
 
 #hamburger-menu #navigation .nav-item {
     width: 100%;
     padding: 15px 2px 15px 2px;
-    background-color: #000;
 }
 
 #hamburger-menu #navigation .nav-item a {
     color: #FFFFFF;
     text-decoration: none;
-    font-weight: 800;
-    font-size: 1.5em;
+    font-weight: 600;
+    font-size: 1.3em;
 }
 
 #hamburger-menu #navigation .nav-item .selected {
-    background-color: #888888;
+    color: #64B5F6;
 }
 
 .opened {
@@ -276,20 +280,43 @@ body {
 }
 
 #content-holder {
-    margin-top: 70px;
-    padding: 0 20px 0 20px;
-    flex-flow: row wrap;
-}
-
-section.page {
-    display: block;
-}
-
-section.page .open {
-    visibility: visible;
+    margin-top: 65px;
+    padding: 0 7px 0 7px;
     height: 100%;
-    width: 100%;
-    overflow-y: scroll;
+    /*flex-flow: row wrap;*/
+}
+
+
+.card-holder {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.card-holder .card {
+    border-radius: 3px;
+    background-color: #FFFFFF;
+    padding: 22px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.card-holder .card:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.card-holder .card .link {
+    font-size: 0.9em;
+    vertical-align: bottom;
+    text-align: left;
+}
+
+.card-holder .card .link a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #64B5F6;
 }
 
 @media screen and (max-width: 800px) {
@@ -299,6 +326,8 @@ section.page .open {
         color: white !important;
         display: inline-block;
     }
+    
+    
     
     @media (orientation: portrait) {
         #hamburger-menu {
@@ -332,8 +361,8 @@ section.page .open {
     
     #hamburger-menu {
         visibility: visible !important;
-        z-index: 1000;
-        width: 20%;
+        z-index: 0;
+        width: 260px;
         left: 0 !important;
     }
     
