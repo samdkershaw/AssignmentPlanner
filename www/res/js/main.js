@@ -33,6 +33,8 @@ var app = {
 $(document).ready(function() {
    hideSplashScreen();
     setEventListeners();
+    hideAllSections();
+    $("section[data-name=home]").show();
 })
 
 function setEventListeners() {
@@ -43,6 +45,22 @@ function setEventListeners() {
         $(this).addClass('selected');
         hideHamburgerMenu();
     });
+    $("li").click(function() {
+        $('li').each(function(i, obj) {
+            $(this).removeClass('selected');
+        });
+        $(this).addClass('selected');
+        
+        var elementToShow = $(this).attr('data-name');
+        
+        if (elementToShow !== undefined) {
+            hideAllSections();
+
+            $("section[data-name=" + elementToShow + "]").fadeIn(600).show;
+            
+            setTitle(elementToShow);
+        }
+    });
     $(window).on('swipeleft swiperight', null, true, function(event) {
         if (event.type == 'swipeleft') {
             hideHamburgerMenu();
@@ -50,6 +68,23 @@ function setEventListeners() {
             showHamburgerMenu();
         }
     });
+}
+
+function hideAllSections() {
+        $("section").each(function() {
+            $(this).hide();
+        });
+    }
+
+function setTitle(pageName='home') {
+    $title = $('span[class=title]');
+    switch (pageName) {
+        case 'home':
+            $title.text("Dashboard");
+            break;
+        case 'addAssignment':
+            $title.text("Add Assignment");
+    }
 }
 
 function hideSplashScreen() {

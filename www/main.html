@@ -30,11 +30,11 @@
                 <i class="material-icons">close</i>
             </button>
             <ul id="navigation">
-                <li class="nav-item">
-                    <a href="#home">Home</a>
+                <li class="nav-item" data-name="home">
+                    <a href="#">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#addAssignment">Add Assignment</a>
+                <li class="nav-item" data-name="addAssignment">
+                    <a href="#">Add Assignment</a>
                 </li>
             </ul>
         </nav>
@@ -52,19 +52,22 @@
 
             <div id="content-holder">
                 <!-- Begin Main Page -->
-                <section name="home" class="page">
+                <section data-name="home" class="page">
                     <div class="card-holder">
                         <div class="card">
+                            <h1>This is a test card with a very long title</h1>
                             <p>Yolo</p>
                             <span class="link">
                                 <a href="#">take me there</a>
                             </span>
                         </div>
                         <div class="card">
-                            <p>Hello</p>
+                            <h1>This is a test card with a very long title</h1>
+                            <p>Yolo</p>
                         </div>
                         <div class="card">
-                            <p>Hello</p>
+                            <h1>This is a test card with a very long title</h1>
+                            <p>Yolo</p>
                         </div>
                         <div class="card">
                             <p>Hello</p>
@@ -79,8 +82,13 @@
                 </section>
                 <!-- End Main Page -->
                 <!-- Begin Add Assignment Page -->
-                <section name="addAssignment" class="page">
-
+                <section data-name="addAssignment" class="page">
+                    <div class="card-holder">
+                        <div class="card">
+                            <h2>Adding an Assignment</h2>
+                            <p>Enter the values below:</p>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>
